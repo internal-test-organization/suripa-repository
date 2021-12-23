@@ -27,5 +27,4 @@ jobs:
       - name: Run a multi-line script
         run: |
          curl -i -u suripasahatcs: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 'https://api.github.com/orgs/internal-test-organization/members' \
-          --header 'Accept: application/vnd.github.v3+json' \
-          --header 'Authorization: Bearer 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'
+          --header 'Accept: application/vnd.github.v3+json'
