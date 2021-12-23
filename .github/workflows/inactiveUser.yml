@@ -26,6 +26,5 @@ jobs:
       # Runs a set of commands using the runners shell
       - name: Run a multi-line script
         run: |
-         curl --location --request GET 'https://api.github.com/orgs/internal-test-organization/members' \
-          --header 'Accept: application/vnd.github.v3+json' \
-          --header 'Authorization: Bearer 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'
+         curl --location --request GET 'https://api.github.com/users' \
+          --header 'Accept: application/vnd.github.v3+json'
