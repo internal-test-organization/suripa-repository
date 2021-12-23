@@ -28,4 +28,4 @@ jobs:
         run: |
          curl --location --request GET 'https://api.github.com/orgs/internal-test-organization/members' \
           --header 'Accept: application/vnd.github.v3+json' \
-          --header 'Authorization: Bearer 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'
+          --header 'Authorization: Bearer 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'
