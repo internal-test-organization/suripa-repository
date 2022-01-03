@@ -29,4 +29,3 @@ jobs:
          curl --request GET --header "Authorization: Bearer $USER_TOKEN" --header "Accept: application/vnd.github.v3+json" --url "https://api.github.com/orgs/internal-test-organization/members"
         env:
           USER_TOKEN: ${{ secrets.PAGES_TOKEN }}
-            echo '::set-output name=login::{login}'
