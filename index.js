@@ -1,12 +1,7 @@
 const fs = require('fs')
   , path = require('path')
   , core = require('@actions/core')
-  , io = require('@actions/io')
   , json2csv = require('json2csv')
-  , OrganizationActivity = require('./src/OrgsUserActivity')
-  , githubClient = require('./src/githublib/githubClient')
-  , dateUtil = require('./src/dateUtil')
-  , OrgsssActivity = require('./src/githublib/Organization')
 ;
 function saveIntermediateData(directory, data) {
   try {
