@@ -1,0 +1,16 @@
+name: GitHub Organization User Activity
+description: A summary of user activity for an organization
+author: suripa
+
+  outputDir:
+    description: The output directory for the report.
+    required: true
+    default: ${{ github.workspace }}
+
+  organization:
+    description: The organization name.
+    required: true
+
+runs:
+  using: node12
+  main: dist/index.js
