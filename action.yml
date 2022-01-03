@@ -1,7 +1,11 @@
 name: GitHub Organization User Activity
 description: A summary of user activity for an organization
 author: suripa
-
+inputs:
+  USER_TOKEN:
+    description: GitHub Access Token.
+    required: true
+    
   outputDir:
     description: The output directory for the report.
     required: true
