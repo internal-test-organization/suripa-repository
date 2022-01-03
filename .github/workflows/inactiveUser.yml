@@ -25,7 +25,18 @@ jobs:
 
       # Runs a set of commands using the runners shell
       - name: Run a multi-line script
+        id: analyze_org
         run: |
          curl --request GET --header "Authorization: Bearer $USER_TOKEN" --header "Accept: application/vnd.github.v3+json" --url "https://api.github.com/orgs/internal-test-organization/members"
         env:
           USER_TOKEN: ${{ secrets.PAGES_TOKEN }}
+      - name: Results
+        run: |
+          echo "InactiveUser - ${{ steps.analyze_org.outputs.report_json }}"
+          echo "UserCount - ${{ steps.analyze_org.outputs.usercount }}"
+      - name: Attach Artifacts
+        uses: actions/upload-artifact@v2
+        with:
+          name: reports
+          path: |
+            ${{ steps.analyze_org.outputs.report_json }}
