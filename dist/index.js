@@ -1555,38 +1555,6 @@ exports.debug = debug; // for test
 
 /***/ }),
 
-/***/ 993:
-/***/ ((module) => {
-
-module.exports = eval("require")("./src/OrgsUserActivity");
-
-
-/***/ }),
-
-/***/ 916:
-/***/ ((module) => {
-
-module.exports = eval("require")("./src/dateUtil");
-
-
-/***/ }),
-
-/***/ 947:
-/***/ ((module) => {
-
-module.exports = eval("require")("./src/githublib/Organization");
-
-
-/***/ }),
-
-/***/ 619:
-/***/ ((module) => {
-
-module.exports = eval("require")("./src/githublib/githubClient");
-
-
-/***/ }),
-
 /***/ 628:
 /***/ ((module) => {
 
@@ -1719,12 +1687,7 @@ var __webpack_exports__ = {};
 const fs = __nccwpck_require__(147)
   , path = __nccwpck_require__(17)
   , core = __nccwpck_require__(82)
-  , io = __nccwpck_require__(336)
   , json2csv = __nccwpck_require__(628)
-  , OrganizationActivity = __nccwpck_require__(993)
-  , githubClient = __nccwpck_require__(619)
-  , dateUtil = __nccwpck_require__(916)
-  , OrgsssActivity = __nccwpck_require__(947)
 ;
 function saveIntermediateData(directory, data) {
   try {
