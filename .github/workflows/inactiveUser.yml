@@ -35,7 +35,7 @@ jobs:
       - name: Results
         run: |
           echo "InactiveUser - ${{ steps.analyze_org.outputs.report_json }}"
-          echo "UserCount - ${{ steps.analyze_org.outputs.usercount }}"
+          echo [ $CODE ]
       - name: Attach Artifacts
         uses: actions/upload-artifact@v2
         with:
