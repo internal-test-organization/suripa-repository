@@ -30,7 +30,7 @@ jobs:
       - name: Results 2
         run: |
          curl --request GET --header "Authorization: Bearer $USER_TOKEN" --header "Accept: application/vnd.github.v3+json" --url "https://api.github.com/orgs/internal-test-organization/members"
-         | jq . > output_file.json 
+        # | jq . > output_file.json 
         env:
           USER_TOKEN: ${{ secrets.PAGES_TOKEN }}
       - name: Results
