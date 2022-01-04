@@ -27,12 +27,21 @@ jobs:
       - name: Run a multi-line script
         id: analyze_org
         uses: ./
-      - name: Results 2
-        run: |
-         curl --request GET --header "Authorization: Bearer $USER_TOKEN" --header "Accept: application/vnd.github.v3+json" --url "https://api.github.com/orgs/internal-test-organization/members"
+    #  - name: Results 2
+    #    run: |
+    #     curl --request GET --header "Authorization: Bearer $USER_TOKEN" --header "Accept: application/vnd.github.v3+json" --url "https://api.github.com/orgs/internal-test-organization/members"
         # | jq . > output_file.json 
         env:
           USER_TOKEN: ${{ secrets.PAGES_TOKEN }}
+      - name: set output
+        id: set
+        run: |
+         echo ::set-output name=json_var::'curl --request GET --header "Authorization: Bearer $USER_TOKEN" --header "Accept: application/vnd.github.v3+json" --url "https://api.github.com/orgs/internal-test-organization/members"'
+      - name: use output
+        run: |
+          echo $json_var | jq '.[].name'
+        env:
+          json_var: ${{ steps.set.outputs.json_var}}
       - name: Results
         run: |
           echo "InactiveUser - ${{ steps.analyze_org.outputs.report_json }}"
