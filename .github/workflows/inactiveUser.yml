@@ -29,13 +29,13 @@ jobs:
         uses: ./
       - name: Results 2
         run: |
-         CODE= `curl --request GET --header "Authorization: Bearer $USER_TOKEN" --header "Accept: application/vnd.github.v3+json" --url "https://api.github.com/orgs/internal-test-organization/members"`
+         curl --request GET --header "Authorization: Bearer $USER_TOKEN" --header "Accept: application/vnd.github.v3+json" --url "https://api.github.com/orgs/internal-test-organization/members"
+         | jq . > output_file.json 
         env:
           USER_TOKEN: ${{ secrets.PAGES_TOKEN }}
       - name: Results
         run: |
           echo "InactiveUser - ${{ steps.analyze_org.outputs.report_json }}"
-          echo [ $CODE ]
       - name: Attach Artifacts
         uses: actions/upload-artifact@v2
         with:
