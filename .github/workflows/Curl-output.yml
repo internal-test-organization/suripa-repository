@@ -34,5 +34,5 @@ jobs:
           RESP: ${{ steps.API_resp.outputs}}
       - name: Run a multi-line script
         run: |
-          echo ${{ env.RESP }}
+          echo "${{ env.RESP }}"
         
