@@ -10,9 +10,7 @@ on:
 
   # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch:
-env:
-  USER_TOKEN: ${{ secrets.PAGES_TOKEN }}
-  RESP: ${{ steps.API_resp.outputs}}
+
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
   # This workflow contains a single job called "build"
@@ -31,3 +29,6 @@ jobs:
         run: |
           curl --request GET --header "Authorization: Bearer $USER_TOKEN" --header "Accept: application/vnd.github.v3+json" --url "https://api.github.com/orgs/internal-test-organization/members"
         # | jq . > output_file.json 
+env:
+  USER_TOKEN: ${{ secrets.PAGES_TOKEN }}
+  RESP: ${{ steps.API_resp.outputs}}
