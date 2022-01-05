@@ -23,6 +23,4 @@ jobs:
     - name: Set the value
       id: step_one
       run: |
-        echo 'JSON_RESPONSE<<EOF' >> $GITHUB_ENV
-        curl --request GET --header "Authorization: Bearer $USER_TOKEN" --header "Accept: application/vnd.github.v3+json" --url "https://api.github.com/orgs/internal-test-organization/members" >> $GITHUB_ENV
-        echo 'EOF' >> $GITHUB_ENV
+        echo "::set-output name=releasetag::$(curl --request GET --header "Authorization: Bearer $USER_TOKEN" --header "Accept: application/vnd.github.v3+json" --url "https://api.github.com/orgs/internal-test-organization/members" | jq '.login' | sed 's/\"//g')"
