@@ -32,3 +32,7 @@ jobs:
         env:
           USER_TOKEN: ${{ secrets.PAGES_TOKEN }}
           RESP: ${{ steps.API_resp.outputs}}
+      - name: Run a multi-line script
+        run: |
+          echo ${{ env.RESP }}
+        
