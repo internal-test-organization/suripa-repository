@@ -31,3 +31,5 @@ jobs:
         # | jq . > output_file.json 
         env:
           USER_TOKEN: ${{ secrets.PAGES_TOKEN }}
+      - name: Result2
+        run: echo "${{ steps.API_resp.outputs.login }}"
