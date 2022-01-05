@@ -12,9 +12,9 @@ jobs:
         id: set
         run: |
          #echo ::set-output name=json_var::'[{ "name": "test", "client_payload": "111" }, { "name": "test2", "client_payload": "222" }] '
-         echo ::set-output name=json_var::'$(curl --request GET --header "Authorization: Bearer $USER_TOKEN" --header "Accept: application/vnd.github.v3+json" --url "https://api.github.com/orgs/internal-test-organization/members")'
-         env:
-          USER_TOKEN: ${{ secrets.PAGES_TOKEN }}
+         echo ::set-output name=json_var::'$(curl --request GET --header "Authorization: Bearer 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" --header "Accept: application/vnd.github.v3+json" --url "https://api.github.com/orgs/internal-test-organization/members")'
+         #env:
+          #USER_TOKEN: ${{ secrets.PAGES_TOKEN }}
       - name: use output
         run: |
           echo $json_var | jq '.[].login'
