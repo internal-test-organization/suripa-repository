@@ -33,4 +33,4 @@ jobs:
           RESP: ${{ steps.API_resp.outputs}}
       - name: Run a multi-line script
         run: |
-          echo $response
+          echo $response | jq '.[].login'
