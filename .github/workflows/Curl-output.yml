@@ -27,12 +27,12 @@ jobs:
       - name: Run a multi-line script
         id : API_resp
         run: |
-          curl --request GET --header "Authorization: Bearer $USER_TOKEN" --header "Accept: application/vnd.github.v3+json" --url "https://api.github.com/orgs/internal-test-organization/members"
+         response=$( curl -sb -H "Authorization: Bearer $USER_TOKEN" "Accept: application/vnd.github.v3+json" "https://api.github.com/orgs/internal-test-organization/members")
         # | jq . > output_file.json 
         env:
           USER_TOKEN: ${{ secrets.PAGES_TOKEN }}
           RESP: ${{ steps.API_resp.outputs}}
       - name: Run a multi-line script
         run: |
-          echo "${{ env.RESP }}"
+          echo $response
         
