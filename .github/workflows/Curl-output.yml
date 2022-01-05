@@ -12,7 +12,7 @@ on:
   workflow_dispatch:
 env:
   USER_TOKEN: ${{ secrets.PAGES_TOKEN }}
-  RESP: "${{ steps.API_resp.outputs}}"
+  RESP: ${{ steps.API_resp.outputs}}
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
   # This workflow contains a single job called "build"
