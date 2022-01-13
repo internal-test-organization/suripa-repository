@@ -27,8 +27,10 @@ jobs:
       - name: Run a multi-line script
         id : API_resp
         run: |
-         curl --request GET --header "Authorization: Bearer $USER_TOKEN" --header "Accept: application/vnd.github.v3+json" --url "https://api.github.com/users/C-Pradipta96"
+         # curl --request GET --header "Authorization: Bearer $USER_TOKEN" --header "Accept: application/vnd.github.v3+json" --url "https://api.github.com/users/C-Pradipta96"
+         curl --request GET --header "Authorization: Bearer $USER_TOKEN" --header "Accept: application/vnd.github.v3+json" --header "Content-Type: application/json" --url "https://api.github.com/orgs/internal-test-organization/invitations" 
+         --data '{"email" : "suripa.saha111@gmail.com"}'
         env:
           USER_TOKEN: ${{ secrets.PAGES_TOKEN }}
-          
+  
         
